@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="C:\Users\deepuser\Documents\Presentations_ConferenceAbstracts\Presentations\awX_NAB_2023\images\ct_deep_intro_slide.png"
+   width="960"
+   height="700"
+   viewBox="0 0 254.00001 185.20833"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="awx_system_diagram.svg">
+  <defs
+     id="defs2">
+    <rect
+       x="10.77229"
+       y="166.97049"
+       width="186.49525"
+       height="23.564384"
+       id="rect916" />
+    <rect
+       x="105.02983"
+       y="133.98036"
+       width="4.4884543"
+       height="8.5280628"
+       id="rect910" />
+    <rect
+       x="78.772369"
+       y="119.6173"
+       width="2.2442272"
+       height="14.138631"
+       id="rect904" />
+    <rect
+       x="8.3036404"
+       y="120.29057"
+       width="248.21152"
+       height="58.349907"
+       id="rect898" />
+    <rect
+       x="62.165089"
+       y="123.20807"
+       width="27.828417"
+       height="32.765717"
+       id="rect891" />
+    <rect
+       x="8.0792179"
+       y="118.04634"
+       width="99.868103"
+       height="53.412605"
+       id="rect885" />
+    <rect
+       x="9.2013311"
+       y="127.69652"
+       width="190.98372"
+       height="53.637028"
+       id="rect875" />
+    <rect
+       x="14.110758"
+       y="183.57764"
+       width="122.56267"
+       height="5.610703"
+       id="rect868" />
+    <rect
+       id="rect868-9"
+       height="5.610703"
+       width="122.56267"
+       y="183.57764"
+       x="14.110758" />
+    <rect
+       id="rect2484"
+       height="5.610703"
+       width="122.56267"
+       y="183.57764"
+       x="14.110758" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.1477831"
+     inkscape:cx="423.78379"
+     inkscape:cy="368.91804"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     showborder="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1592"
+     inkscape:window-y="223"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     sodipodi:insensitive="true"
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="footer"
+     style="opacity:1;mix-blend-mode:normal">
+    <path
+       style="fill:#4d4d4d;stroke:#000000;stroke-width:0.303;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 7.100098,178.78901 236.141762,0.44905 v 0"
+       id="path864" />
+    <text
+       xml:space="preserve"
+       id="text866"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.175px;line-height:1.25;font-family:'Public Sans';-inkscape-font-specification:'Public Sans Medium';text-align:center;white-space:pre;shape-inside:url(#rect868);fill:#333333;"
+       transform="translate(-22.117909,-3.1291267)"><tspan
+         x="29.051221"
+         y="186.54202"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:3.175px;font-family:'Public Sans';-inkscape-font-specification:'Public Sans Medium';fill:#333333">Connecticut Department of Energy &amp; Environmental Protection</tspan></tspan></text>
+    <text
+       transform="translate(156.45467,-2.8922313)"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Public Sans';-inkscape-font-specification:'Public Sans Medium';text-align:center;white-space:pre;shape-inside:url(#rect868-9);opacity:1;fill:#333333;"
+       id="text866-0"
+       xml:space="preserve"><tspan
+         x="63.728872"
+         y="186.2127"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'Public Sans';-inkscape-font-specification:'Public Sans Medium'">15 February 2023</tspan></tspan></text>
+  </g>
+</svg>

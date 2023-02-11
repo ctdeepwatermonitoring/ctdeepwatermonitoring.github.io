@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>awX</title>
+
+		<link rel="icon" type="image/x-icon" href="images/waterDB.png">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="images/ct_deep_intro_slide.png" alt="CT DEEP" width="920">
+				</section>
+				<section>
+					<blockquote style = "font-size: large;">
+						<p>
+							‘Conducting research is a bit like parenting. Raising a child involves <b>a lot of 
+							cleaning and tidying, setting standards, and maintaining order,</b> 
+							all of which goes completely unnoticed and for which the parent receives absolutely no credit.
+						</p>
+						<p>
+							Similarly, producing a bright, shiny result from the raw beginnings of a 
+							research project involves <b>a lot of work that is almost never seen or acknowledged.</b>
+						</p>
+						<p>
+							...Another thing that parenting and the “dirty jobs” of research have in common is 
+							that nobody gets taught how to do it. Parents just learn on the job and researchers 
+							typically have to do likewise when it comes to learning how to manage their data.'
+						</p>	
+					</blockquote>
+					<p style = "font-size: large;">
+						-Paul Murrell ‘Introduction to Data Technologies’ (Emphasis Added)
+					</p>
+				</section>
+				<section>
+					<blockquote style = "font-size: extra-large;">
+						<p>
+							<b>‘The database upgrade should be highest priority… <br>
+							If this project fails you might as well send everybody home.' </b><br>
+					</blockquote>
+					<p style = "font-size: medium">
+						-Ernie Pizzuto (Former Supervising EA, Monitoring and Assessment Program)
+					</p>
+				</section>
+				<section>
+					<img src="images/data_mgmt_timeline.png" alt="awx" width="920">
+				</section>
+				<section>
+					<img src="images/adaptive_science.png" alt="adaptive management" width="920">
+				</section>
+				<section>
+					<img src="images/epa_wqx_web_services.png" alt="awx" width="920">
+				</section>
+				<section>
+					<img src="images/web_services.png" alt="awx" width="920">
+				</section>
+				<section>
+					WQX Web API
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+					# GET Request to Start Import from Local Server to WQX Web
+						 base = 	'https://cdx2.epa.gov/WQXWeb/api/StartImport?importConfigurationId='
+					file_id = 	fileID[0]
+							end = 	'fileType=XLSX&' \
+											'newOrExistingData=0&' \
+											'uponCompletion=0&' \
+											'uponCompletionCondition=0&' \
+											'worksheetsToImport=1&' \
+											'ignoreFirstRowOfFile=true'
+					import_uri = base+config_id+'&fileId='+file_id+'&'+end
+					dataset_id = []
+					wqx_request('GET', user_id, user_key, import_uri, None, dataset_id)
+					</code></pre>
+				</section>
+				<section>
+					<div class="r-hstack">
+						
+						<div style="text-align: left; font-size: xx-large;">
+							<p>
+								 <img src="images/waterDB.png" alt="awX mission statement" style="height: 100px;"> awX
+								is a data management system for storing, retrieving and exploring ambient water data 
+								collected by CT DEEP with a goal of providing a fluid data exchange with staff 
+								and the public to facilitate and support science-based environmental decision making</p>
+							<p>
+								In time the system will support ambient water quality, continuous 
+								(temperature /conductivity) water quality, and stream connectivity (trail camera) data.
+							</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<img src="images/awx_diagram.png" alt="awx" width="920">
+				</section>
+				<section>
+					<div class="r-hstack">
+						awqX </br>Database Schema
+						<img src="images/awqx_schema.png" alt="DB Schema" style="background: rgb(255, 255, 255) ;"
+						 class="r-stretch">
+					</div>
+				</section>
+				<section>
+					<div class="r-hstack">
+						awX </br>Internal Portal
+						<img src="images/awqX_portal.png" alt="awx portal" style="background: rgb(255, 255, 255) ;"
+						 class="r-stretch">
+					</div>
+				</section>
+				<section>
+					<img src="images/awx_schemas.png" alt="awx schemas" width="920">
+				</section>
+				<section>
+					Interconnected system advantages<hr>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						-- SQL Query Joining Data from Different Schemas 
+						-- (awqx DB & cont DB)
+						SELECT 	temperature.probeID,temperature.staSeq,
+										stations.locationName, stations.subBasin,
+										temperature.result,temperature.uom
+						FROM 		cont.temperature
+						JOIN 		awqx.stations ON stations.staSeq = temperature.staSeq
+						WHERE 	temperature.staSeq = 15796;
+					</code></pre>
+					<p style = "font-size: x-large;">Reusuable components under one umbrella in different schemas</p>
+				</section>
+				<section>
+					<img src="images/foundational_web_tech.png" alt="foundational web tech" width="920">
+				</section>
+				<section>
+					Water Quality Portal Web Service Query
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						// Import results directly from DB web service
+						var strt = 'https://www.waterqualitydata.us/data/'
+						var rsrc = 'Result/search?'
+						var styp = 'siteType=Stream&'
+						var orgn = 'organization=CT_DEP01_WQX&'
+						var chrt = 'characteristicName=Specific%20conductance&'
+						var rtpf = 'mimeType=csv&zip=no&dataProfile=resultPhysChem&providers=STORET'
+
+						var rurl = strt + rsrc + styp + orgn + chrt + rtpf
+						// 'https://www.waterqualitydata.us/data/Result/search?siteType=Stream&organization=CT_DEP01_WQX&characteristicName=Specific%20conductance&mimeType=csv&zip=no&dataProfile=resultPhysChem&providers=STORET'
+					</code></pre>
+					<p>Customizable query to get specific results</p>
+				</section>
+				<section>
+					<a href="https://www.waterqualitydata.us/webservices_documentation/">https://www.waterqualitydata.us/webservices_documentation/</a>
+					<img src="images/wqp_web_services_guide.png" alt="wqp web services guide" width="700">
+				</section>
+				<section>
+					<a href="https://www.waterqualitydata.us">https://www.waterqualitydata.us</a>
+					<img src="images/wqp_query.png" alt="wqp query" width="700">
+				</section>
+				<section>
+					<a href="https://ctdeepwatermonitoring.github.io/beachReport/2021">https://ctdeepwatermonitoring.github.io/beachReport/2021</a>
+					<img src="images/beach_report.png" alt="beach report" width="700">
+				</section>
+				<section>
+					<a href="https://marybecker.github.io/CT_WQX_Chem/">https://marybecker.github.io/CT_WQX_Chem/</a>
+					<img src="images/ct_chem_rpt.png" alt="ct chem rpt">
+				</section>
+				<section>
+					<a href="https://marybecker.github.io/CTbloomWatch/">https://marybecker.github.io/CTbloomWatch/</a>
+					<img src="images/ct_bloomWatch.png" alt="ct bloomwatch">
+				</section>
+				<section>
+					<img src="images/acknowledgements.png" alt="acknowledgements" width="920">
+				</section>
+				<section>
+					Monitoring and Assessment Data Management and Visualization Applications
+					<hr>
+					<div style="font-size: x-large;">
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					<a href="https://ctdeepwatermonitoring.github.io/">https://ctdeepwatermonitoring.github.io/</a><br>
+					</div>
+					
+
+
+				</section>
+				<section>
+					<section>
+						<img src="images/questions.png" alt="questions" width="920">
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				center: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
