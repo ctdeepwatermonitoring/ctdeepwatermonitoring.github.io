@@ -1,6 +1,8 @@
 # ctdeepwatermonitoring.github.io
-Holding place for ambient monitoring and assessment data reports and visualizations
+Ambient monitoring and assessment Program Background
 
-data management:  https://ctdeepwatermonitoring.github.io/
+Data Management Overview:  https://ctdeepwatermonitoring.github.io/
 
-2023 program updates:  https://ctdeepwatermonitoring.github.io/updates
+Program Overview:  https://ctdeepwatermonitoring.github.io/map
+
+2023 Program Updates:  https://ctdeepwatermonitoring.github.io/updates
